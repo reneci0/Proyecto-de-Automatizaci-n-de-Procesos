@@ -1,6 +1,6 @@
 # Proyecto-de-Automatizaci-n-de-Procesos
 Este repositorio contiene la documentación, arquitectura y código fuente de los flujos de automatización desarrollados como **avances a la fecha**, utilizando herramientas del ecosistema **Microsoft Power Platform**: **Power Automate Desktop (PAD)** y **Power Automate Cloud Flow**.
-## 🛠️ Herramienta 1: Flujo de Escritorio (Power Automate Desktop)
+## Herramienta 1: Flujo de Escritorio (Power Automate Desktop)
 
 * **Nombre del flujo:** `Excel flow`
 * **Tipo:** Robotic Process Automation (RPA)
@@ -16,7 +16,7 @@ Este repositorio contiene la documentación, arquitectura y código fuente de lo
 
 ---
 
-## ☁️ Herramienta 2: Flujo en la Nube (Power Automate Cloud)
+## Herramienta 2: Flujo en la Nube (Power Automate Cloud)
 
 * **Nombre del flujo:** `Enviar correos SS y PP`
 * **Tipo:** Flujo desencadenado por eventos en la nube (Cloud Flow)
