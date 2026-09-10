@@ -1,0 +1,34 @@
+DateTime.GetCurrentDateTime.Local DateTimeFormat: DateTime.DateTimeFormat.DateAndTime CurrentDateTime=> CurrentDateTime
+
+Text.ConvertDateTimeToText.FromCustomDateTime DateTime: CurrentDateTime CustomFormat: $'''dd-MM-yyyy hh mm''' Result=> FormattedDateTime
+
+SET RutaProyecto TO $'''C:\\Users\\usuario\\Desktop\\Ejercicio Excel\\'''
+
+SET RowIndex TO 2
+
+Excel.LaunchExcel.LaunchAndOpenUnderExistingProcess Path: $'''%RutaProyecto%Ejemplo.xlsx''' Visible: True ReadOnly: False UseMachineLocale: False Instance=> ExcelInstance
+
+Excel.SetActiveWorksheet.ActivateWorksheetByName Instance: ExcelInstance Name: $'''Productos'''
+
+Excel.ReadFromExcel.ReadAllCells Instance: ExcelInstance GetCellContentsMode: Excel.GetCellContentsMode.TypedValues FirstLineIsHeader: True RangeValue=> ListaProductos
+
+Excel.InsertColumn Instance: ExcelInstance Column: $'''E'''
+
+Excel.WriteToExcel.WriteCell Instance: ExcelInstance Value: $'''Ganancias''' Column: $'''E''' Row: 1
+
+SET RowIndex TO 2
+
+LOOP FOREACH CurrentProduct IN ListaProductos
+
+    Text.ToNumber Text: CurrentProduct['Costo'] Number=> CurrentCost
+
+    Text.ToNumber Text: CurrentProduct['Precio'] Number=> CurrentPrice
+
+    Excel.WriteToExcel.WriteCell Instance: ExcelInstance Value: CurrentPrice - CurrentCost Column: $'''E''' Row: RowIndex
+
+    SET RowIndex TO RowIndex + 1
+
+END
+
+Excel.CloseExcel.CloseAndSaveAs Instance: ExcelInstance DocumentFormat: Excel.ExcelFormat.FromExtension DocumentPath: $'''%RutaProyecto%ListaProductos%FormattedDateTime%.xlsx''' 
+
