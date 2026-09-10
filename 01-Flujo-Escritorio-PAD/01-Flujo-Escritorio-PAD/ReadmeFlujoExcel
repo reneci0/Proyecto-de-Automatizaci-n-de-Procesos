@@ -1,0 +1,11 @@
+* **Nombre del flujo:** `Excel flow`
+* **Tipo:** Robotic Process Automation (RPA)
+* **Objetivo:** Automatizar el procesamiento de inventario/productos en Excel, calculando márgenes de ganancia individuales y generando un archivo de respaldo con estampilla de tiempo.
+
+### Lógica del proceso:
+1. **Obtención de fecha y hora:** Obtiene la hora actual del sistema y la convierte a formato texto `dd-MM-yyyy hh mm`.
+2. **Apertura de archivo:** Abre el libro `Ejemplo.xlsx` ubicado en el directorio local del proyecto.
+3. **Lectura de datos:** Carga los registros de la hoja `Productos`.
+4. **Estructuración:** Inserta una nueva columna en la posición **E** etiquetada como **"Ganancias"**.
+5. **Cálculo automatizado (Bucle):** Recorre cada registro, convierte las columnas `Costo` y `Precio` a tipo numérico y calcula la diferencia (`Precio - Costo`), escribiendo el resultado en la columna **E**.
+6. **Guardado y respaldo:** Guarda una copia del libro modificado con la nomenclatura `ListaProductos[FechaHora].xlsx` y cierra la aplicación Excel.
