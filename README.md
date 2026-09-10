@@ -2,19 +2,8 @@
 Este repositorio contiene la documentación, arquitectura y código fuente de los flujos de automatización desarrollados como **avances a la fecha**, utilizando herramientas del ecosistema **Microsoft Power Platform**: **Power Automate Desktop (PAD)** y **Power Automate Cloud Flow**.
 ## Herramienta 1: Flujo de Escritorio (Power Automate Desktop)
 
-* **Nombre del flujo:** `Excel flow`
-* **Tipo:** Robotic Process Automation (RPA)
-* **Objetivo:** Automatizar el procesamiento de inventario/productos en Excel, calculando márgenes de ganancia individuales y generando un archivo de respaldo con estampilla de tiempo.
 
-### Lógica del proceso:
-1. **Obtención de fecha y hora:** Obtiene la hora actual del sistema y la convierte a formato texto `dd-MM-yyyy hh mm`.
-2. **Apertura de archivo:** Abre el libro `Ejemplo.xlsx` ubicado en el directorio local del proyecto.
-3. **Lectura de datos:** Carga los registros de la hoja `Productos`.
-4. **Estructuración:** Inserta una nueva columna en la posición **E** etiquetada como **"Ganancias"**.
-5. **Cálculo automatizado (Bucle):** Recorre cada registro, convierte las columnas `Costo` y `Precio` a tipo numérico y calcula la diferencia (`Precio - Costo`), escribiendo el resultado en la columna **E**.
-6. **Guardado y respaldo:** Guarda una copia del libro modificado con la nomenclatura `ListaProductos[FechaHora].xlsx` y cierra la aplicación Excel.
 
----
 
 ## Herramienta 2: Flujo en la Nube (Power Automate Cloud)
 
@@ -40,6 +29,7 @@ Este repositorio contiene la documentación, arquitectura y código fuente de lo
 ├── README.md                           <-- Documentación general
 ├── 01-Flujo-Escritorio-PAD/            <-- Herramienta 1: RPA Desktop
 │   └── script_pad.txt                  <-- Código de acciones del flujo
+    
 └── 02-Flujo-Nube-CloudFlow/            <-- Herramienta 2: Cloud Flow
     ├── definition.json                 <-- Definición de la lógica en JSON
     └── CORREOSSSYPP.zip                <-- Paquete de solución importable
